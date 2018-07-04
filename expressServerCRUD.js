@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var validator = require('express-validator');
 var app = express();
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 //Data Model for grades 
 //========================================================================
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(express.urlencoded({extended:true}));
 app.use(validator());
+app.use(cors());
 
 var port = 8888;
 
@@ -42,7 +44,7 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8888/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'great job! welcome to the api!' });   
+    res.json({ message: 'Good job! welcome to the api!' });   
 });
 
 // more routes for the API will happen here
